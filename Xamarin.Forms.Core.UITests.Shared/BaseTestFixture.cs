@@ -60,6 +60,7 @@ namespace Xamarin.Forms.Core.UITests
 #pragma warning restore 618
 		protected virtual void FixtureSetup()
 		{
+			LaunchApp();
 			ResetApp();
 
 			int maxAttempts = 2;
