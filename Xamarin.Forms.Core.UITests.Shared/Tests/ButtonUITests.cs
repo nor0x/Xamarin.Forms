@@ -166,10 +166,6 @@ namespace Xamarin.Forms.Core.UITests
 		}
 #endif
 
-		protected override void FixtureTeardown()
-		{
-			App.NavigateBack();
-			base.FixtureTeardown();
-		}
+
 	}
 }

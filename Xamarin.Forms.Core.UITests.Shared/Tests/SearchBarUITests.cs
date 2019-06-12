@@ -31,10 +31,5 @@ namespace Xamarin.Forms.Core.UITests
 
 		// TODO
 		// Implement control specific ui tests
-		protected override void FixtureTeardown ()
-		{
-			App.NavigateBack ();
-			base.FixtureTeardown ();
-		}
 	}
 }

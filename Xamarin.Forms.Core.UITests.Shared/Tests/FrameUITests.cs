@@ -43,12 +43,6 @@ namespace Xamarin.Forms.Core.UITests
 		// TODO
 		// Implement control specific ui tests
 
-		protected override void FixtureTeardown()
-		{
-			App.NavigateBack();
-			base.FixtureTeardown();
-		}
-
 		[UiTestExempt(ExemptReason.CannotTest, "Invalid interaction")]
 		public override void _IsEnabled()
 		{

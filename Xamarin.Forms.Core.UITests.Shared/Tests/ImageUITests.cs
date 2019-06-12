@@ -52,10 +52,5 @@ namespace Xamarin.Forms.Core.UITests
 		// TODO
 		// Tests for remote images
 
-		protected override void FixtureTeardown()
-		{
-			App.NavigateBack();
-			base.FixtureTeardown();
-		}
 	}
 }

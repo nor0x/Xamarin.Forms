@@ -17,35 +17,10 @@ namespace Xamarin.Forms.Core.UITests
 
 		public static AppRect ScreenBounds { get; set; }
 
-		[TestFixtureTearDown]
-		protected virtual void FixtureTeardown()
-		{
-		}
-
-		static int s_testsrun;
-		const int ConsecutiveTestLimit = 10;
-
-		// Until we get more of our memory leak issues worked out, restart the app 
-		// after a specified number of tests so we don't get bogged down in GC 
-		// (or booted by jetsam)
-		public void EnsureMemory()
-		{
-			s_testsrun += 1;
-
-			if (s_testsrun >= ConsecutiveTestLimit)
-			{
-				s_testsrun = 0;
-
-				LaunchApp();
-
-				FixtureSetup();
-			}
-		}
-
 		[SetUp]
 		protected virtual void TestSetup()
 		{
-			EnsureMemory();
+			FixtureSetup();
 		}
 
 		[TearDown]
@@ -58,6 +33,7 @@ namespace Xamarin.Forms.Core.UITests
 		protected virtual void FixtureSetup()
 		{
 			LaunchApp();
+			ResetApp();
 
 			int maxAttempts = 2;
 			int attempts = 0;
@@ -96,11 +72,11 @@ namespace Xamarin.Forms.Core.UITests
 
 		public static void LaunchApp()
 		{
-			BaseTestFixture.App = null;
-			BaseTestFixture.App = AppSetup.Setup();
+			App = null;
+			App = AppSetup.Setup();
 
-			BaseTestFixture.App.SetOrientationPortrait();
-			BaseTestFixture.ScreenBounds = BaseTestFixture.App.RootViewRect();
+			App.SetOrientationPortrait();
+			ScreenBounds = BaseTestFixture.App.RootViewRect();
 		}
 
 		protected void ResetApp()

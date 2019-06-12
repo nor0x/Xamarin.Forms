@@ -29,11 +29,5 @@ namespace Xamarin.Forms.Core.UITests
 		    // Dismiss alert
 		    App.Tap(c => c.Text("OK"));
 	    }
-
-	    protected override void FixtureTeardown()
-	    {
-		    App.NavigateBack();
-		    base.FixtureTeardown();
-	    }
 	}
 }

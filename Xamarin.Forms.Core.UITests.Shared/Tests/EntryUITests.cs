@@ -74,10 +74,5 @@ namespace Xamarin.Forms.Core.UITests
 			Assert.AreEqual(eventLabelText, "Event: Completed (fired 1)");
 		}
 
-		protected override void FixtureTeardown()
-		{
-			App.NavigateBack();
-			base.FixtureTeardown();
-		}
 	}
 }
