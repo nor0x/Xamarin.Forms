@@ -868,6 +868,12 @@ namespace Xamarin.Forms
 
 		static void OnCurrentItemChanged(BindableObject bindable, object oldValue, object newValue)
 		{
+			if (oldValue is ShellItem oldShellItem)
+				oldShellItem.SendDisappearing();
+
+			if (newValue is ShellItem newShellItem)
+				newShellItem.SendAppearing();
+
 			var shell = (Shell)bindable;
 			UpdateChecked(shell);
 
