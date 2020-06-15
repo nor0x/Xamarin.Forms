@@ -18,6 +18,13 @@ variables:
 - name: NUGET_VERSION
   value: 5.0.2
 
+resources:
+  repositories:
+    - repository: xamarin-templates
+      type: github
+      name: xamarin/yaml-templates
+      endpoint: xamarin
+
 trigger:
   branches:
     include:
